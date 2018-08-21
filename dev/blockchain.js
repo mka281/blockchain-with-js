@@ -3,7 +3,7 @@ function Blockchain() {
   this.newTransactions = [];
 }
 
-Blockchain.prototype.createBlock = function(nonce, previousBlockHash, hash) {
+Blockchain.prototype.createNewBlock = function(nonce, previousBlockHash, hash) {
   const newBlock = {
     index: this.chain.length + 1,
     timestamp: Date.now(),
@@ -18,3 +18,5 @@ Blockchain.prototype.createBlock = function(nonce, previousBlockHash, hash) {
 
   return newBlock;
 };
+
+module.exports = Blockchain;
