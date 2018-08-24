@@ -13,8 +13,9 @@ app.get("/blockchain", (req, res) => {
 });
 
 app.post("/transaction", (req, res) => {
-  console.log(req.body);
-  res.send(`The amount of the transaction is ${req.body.amount} bitcoin`);
+  const { amount, sender, recipient } = req.body;
+  const blockIndex = bitcoin.createNewTransaction(amount, sender, recipient);
+  res.json({ note: `Transaction will be added in block ${blockIndex}` });
 });
 
 app.get("/mine", (req, res) => {});
